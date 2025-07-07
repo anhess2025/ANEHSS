@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>boutique-Impression 3D</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<header class="site-header">
+    <button id="btn-retour" class="btn-retour"><i class="fas fa-arrow-left"></i></button>
+        <div class="container">
+            <!--Logo-->
+            <div class="logo">
+                
+                <img src="images/Logo.png" alt="logo du site" class="photo">
+            </div>
+            <br>
+
+            
+
+            
+    <div class="user-actions">
+                <a href="#" id="link-panier" style="position: relative;"><i class="fas fa-shopping-cart"></i><span id="panier-compteur" class="panier-compteur">0</span></a>
+                <a href="profil.html" id="link-profil"><i class="fas fa-user"></i></a>
+                <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <!--Menu Responsive-->
+            <nav class="mobile-nav" id="mobile-nav">
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+</header>
+<body>
+    <section class="hero-3d">
+        <div class="texte-hero">
+            <h1><i>Créer vos objects sur mesure </i>&#128717;</h1>
+            <p><b>Boitiers, Miniatures, Pièces techniques... <br>Donnez vie à vos idées grâce à l'impréssion 3D et d'autres techniques de fabrications</p></b>
+            <a href="#" id="lien-commande" class="lien-commande">Passer Votre commande &#128722;</a>
+        </div>
+        <div id="popup-formulaire" class="modal">
+            <div class="modal-contenu">
+                <span id="fermer-popup">&times;</span>
+                <h2>Commande personalisé </h2>
+                <form id="form-commande">
+                    <input type="text" name="nom" placeholder="Nom Complet" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="telephone" placeholder="Numéro Whatsapp" required>
+                    <input type="text" name="adresse" placeholder="Pays, Région, Ville" required>
+                    <input type="text" name="codePostal" placeholder="code postal">
+                    <input type="text" name="dimensions" placeholder="ex. (10x10x5 cm)" required>
+                    <input type="text" name="materiel" placeholder="Type de matériel souhaité" required>
+                    <textarea name="message" placeholder="Cahier des charges / Détails" required></textarea>
+                    <input type="file" name="fichier" id="fichier/cahier de charge-commande" required>
+                    <div id="fichier-statut"></div>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="media-hero">
+            <img src="images/print presentation.jpg">
+        </div>
+    </section>
+    
+        
+    <div id="fichier-statut"> </div>
+    <section class = "section-alterne">
+        <div class="bloc bloc-gauche">
+            <img src="images/pcb presentation.jpg" alt="Prototype 3D">
+            <div class="texte">
+                <h2>Fabrication de  PCB de Haute Qualité pour vos projets d' électroniques</h2><br>
+                <p>chez ANEHSS, nous sommes spécialisés dans la conception et la fabrication de circuits imprimés (PCB) sur mesure,
+                    adaptés à tous vos besoins du <b>prototypage rapide</b> à <b>la production série.</b>
+                </p>
+            </div>
+        </div>
+
+        <div class="bloc bloc-droite">
+            <div class="texte">
+                <h2>Impréssions 3D de boitiers & bien plus ... </h2><br>
+                <p>Nous proposons un service d'impréssion 3D de boitiers personnalisés, parfaitement adaptés à vos projets d'électroniques,
+                    mécaniques ou domotiques grâce à nos imprimantes de haute précision.
+                </p>
+            </div>
+            <img src="images/impression 3d.gif" alt="Objet personalisé">
+        </div>
+    </section>
+    <section class="timeline">
+        <h2 class="titre-timeline">Notre processus de fabrications</h2>
+        <div class="etapes">
+            <div class="etape"><span>1</span> Envoi des fichier & cahiers de charges</div>
+        </div>
+        <div class="etapes">
+            <div class="etape"><span>2</span> Analyse et validation technique</div>
+        </div>
+        <div class="etapes">
+            <div class="etape"><span>3</span> Impression & finition</div>
+        </div>
+        <div class="etapes">
+            <div class="etape"><span>4</span> Emballage et Livraison</div>
+        </div>
+    </section>
+
+
+</body>
+
+<footer>
+        <div class="footer-container">
+            <div class="ooter-col">
+                <h3>A propos</h3>
+                <p> <b>ANEHSS</b> met à votre disposition des services techniques dans le domaine de l’électronique, l'impréssion 3D et La vente 
+                    des composants électroniques.
+                    <b><br>Email : anehss237@gmail.com <br> Siège social : Quartier Ange Raphael, Douala - Cameroun<br> Tel : 
+(+237) 695 88 32 93 	</p></b>
+            </div>
+            <div class="ooter-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="3d.html">Produits</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="mailto:anehss237@gmail.com?subject=Prise%20de%20contact&body=Bonjour,%20j'aimerais%20vous%20Contacter.">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ooter-col">
+                <h3>Suivez-Nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/237679971006"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ooter-col">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 ANEHSS . Tous doits reservés.</p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/3d.js"></script>
+
+
+</html>

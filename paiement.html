@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Paiement</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<header class="site-header">
+        <div class="container">
+            <!--Logo-->
+             <div class="logo">
+                
+                <img src="images/Logo.png" alt="logo du site" class="photo">
+            </div>
+
+        </div>
+        <button id="btn-retour" class="btn-retour"><i class="fas fa-arrow-left"></i></button> 
+    </header>
+<body>
+   
+<main class="paiement-container">
+    <h1>Confirmation de la commande</h1>
+    <form id="form-paiement">
+        <h2> Information de livraison</h2>
+        <input type="text" name="nom" placeholder="&#128100; Nom complet" required/>
+        <input type="email" name="email" placeholder="&#128231; Adresse e-mail" required/>
+        <input type="tel" name="whatsapp" placeholder="&#128241; Numéro Whatsapp" required/>
+        <input type="text" name="region" placeholder="&#127757; Region / ville" required/>
+        <input type="text" name="quartier" placeholder="&#127961; Quartier" required/>
+        <input type="text" name="adresse" placeholder="&#128205; Complément d'adresse (immeuble, étages...), soyez le plus précis possible pour identifier le lieu exacte" required/>
+        <input type="text" name="postal" placeholder="&#128238; Code postal" />
+        <input type="text" name="delai" placeholder="&#9201; Delai de livraison souhaité" required/>
+        <select name="logement" required>
+            <option value="">Type de logement</option>
+            <option value="maison">Maison</option>
+            <option value="appartement">Appartement</option>
+            <option value="bureau">Bureau</option>
+        </select>
+
+        <h2> Votre commande</h2>
+        <div id="resume-commande">
+            <!--Facture des articles-->
+        </div>
+
+        <div class="policy">&#9888;
+            En validant votre commande , vous acceptez nos conditions générales de vente.
+            Aucun remboursement n'est possible après expédition. Livraison entre 1 et 7 jours selon votre région.
+        </div>
+
+        <button type="submit"> Envoyer ma commande</button>
+    </form>
+</main>
+
+</body>
+
+
+<footer>
+        <div class="footer-container">
+            <div class="ooter-col">
+                <h3>A propos</h3>
+                <p> <b>ANEHSS</b> met à votre disposition des services techniques dans le domaine de l’électronique, l'impréssion 3D et La vente 
+                    des composants électroniques.
+                    <b><br>Email : anehss237@gmail.com <br> Siège social : Quartier Ange Raphael, Douala - Cameroun<br> Tel : 
+(+237) 695 88 32 93 	</p></b>
+            </div>
+            <div class="ooter-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="3d.html">Produits</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="mailto:anehss237@gmail.com?subject=Prise%20de%20contact&body=Bonjour,%20j'aimerais%20vous%20Contacter.">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ooter-col">
+                <h3>Suivez-Nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/237679971006"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ooter-col">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 ANEHSS. Tous doits reservés.</p>
+
+    </footer>
+
+   
+    <script>document.getElementById("btn-retour").addEventListener("click", () => {window.history.back()});
+</script>
+<script src="js/paiement.js"></script>
+    
+
+
+
+</html>
