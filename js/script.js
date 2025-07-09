@@ -498,7 +498,7 @@ const commande = {
 commandes.push(commande);
 localStorage.setItem("commandes", JSON.stringify(commandes));
 
-panier = [];
+
 localStorage.setItem("panier", JSON.stringify(panier));
 renderCart();
 alert("commande enregistrée avec succès !");

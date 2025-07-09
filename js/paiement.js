@@ -1,6 +1,21 @@
 const form = document.getElementById("form-paiement");
 const panier = JSON.parse(localStorage.getItem("panier")) || [];
-const produits = JSON.parse(localStorage.getItem("produits")) || [];
+
+
+const resumeDiv = document.getElementById("resume-commande");
+
+let total = 0;
+panier.forEach(p => {
+    const ligne = document.createElement("div");
+    const montant = p.prix * p.quantite;
+    ligne.textContent = `${i} - ${p.nom} x ${p.quantite} - ${montant} FCFA`;
+    resumeDiv.appendChild(ligne);
+    total += montant;
+});
+
+const totalEl = document.createElement("strong");
+totalEl.textContent = `Total : ${total} FCFA`;
+resumeDiv.appendChild(totalEl);
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -19,17 +34,17 @@ form.addEventListener("submit", (e) => {
     message += `Nom: ${infos.nom}\n`;
     message += `Email: ${infos.email}\n`;
     message += `Whatsapp: ${infos.whatsapp}\n`;
-    message += `Pays: ${infos.pays}\n Region: ${infos.region}\n code postal: ${infos.postal}\n`;
-    message += `Delai de livraison souhaité: ${infos.delai}\n\n`;
-    message += `Contenu de la commande: *\n`;
+    message += `quarier: ${infos.quartier}\n Region: ${infos.region}\n code postal: ${infos.postal}\n précision: ${infos.adresse}`;
+    message += `Delai de livraison souhaité: ${infos.delai}\n\n jours`;
+    message += `Contenu de la commande: \n`;
 
     panier.forEach(p => {
-        const total = p.quantite * p.prix;
-        message += `- ${p.nom} x${p.quantite} = ${total} FCFA\n`;
+        const ligne = `${p.nom} x ${p.quantite} = ${p.prix * p.quantite} FCFA`;
+        message += `- ${ligne}\n`;
         
     });
 
-    const total = panier.reduce((s, p) => s + (p.prix * p.quantite), 0);
+    
     message += `\n Total: ${total} FCFA`;
     const numeroAdmin = "237679971006";
     const whatsappUrL = `https://wa.me/${numeroAdmin}?text=${encodeURIComponent(message)}`;
