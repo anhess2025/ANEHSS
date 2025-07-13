@@ -8,7 +8,7 @@ let total = 0;
 panier.forEach(p => {
     const ligne = document.createElement("div");
     const montant = p.prix * p.quantite;
-    ligne.textContent = `${i} - ${p.nom} x ${p.quantite} - ${montant} FCFA`;
+    ligne.textContent = ` - ${p.nom} x ${p.quantite} - ${montant} FCFA`;
     resumeDiv.appendChild(ligne);
     total += montant;
 });

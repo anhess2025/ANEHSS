@@ -1,3 +1,30 @@
+  // Import des fonctions Firebase (API modulaire)
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
+import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDMI_JATEW1I0HG_x0NG4vizPRBud0kkVM",
+  authDomain: "anehss.firebaseapp.com",
+  projectId: "anehss",
+  storageBucket: "anehss.firebasestorage.app",
+  messagingSenderId: "138450949844",
+  appId: "1:138450949844:web:a41647d3e5188327994d41"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth();
+
+
+const CLOUD_NAME = "did435tay";
+const UPLOAD_PRESET = "ml_default";
 
 const menuToggle = document.getElementById("menu-toggle");
 const mobileNav = document.getElementById("mobile-nav");
@@ -69,65 +96,38 @@ function updateFlipCard() {
 updateFlipCard();
 setInterval(updateFlipCard, 5000);
 
-/*const recherchesPopulaires = [
-    "chaussures",
-    "Montres",
-    "Casques"
-];
-
-const tagsContainer = document.getElementById("tags-container");
-
-function genererTags(tags) {
-    tagsContainer.innerHTML = "";
-    tags.forEach(tags => {
-        const button = document.createElement("button");
-        button.className = "tag-button";
-        button.textContent = tags;
-        button.addEventListener("click", () => {
-            alert(`vous avez cliqué sur "${tags}"`);
-        });
-        tagsContainer.appendChild(button);
-    });
-}
-
-genererTags(recherchesPopulaires);*/
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++PRODUITS EN VEDETTES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-const produitsVedette = [
-    {
-        nom: "Main Robotique",
-        prix: 25000,
-        image: "a1 main robotique.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "plaque pcb",
-        prix: 7000,
-        note: 4.5,
-        image: "a2 plaque.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "lot de LED",
-        prix: 10.99,
-        note: 4.5,
-        image: "a3 led.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "Arduino Uno",
-        prix: 8000,
-        note: 4.5,
-        image: "a4 arduino.jpg",
-        stock: "rupture",
-        categorie: ""
-    },
-];
+let produitsVedette = [];
+let nouveauxProduits = [];
+let tousLesProduits = [];
+
+async function chargerProduitsDepuisFirebase() {
+    try {
+        const querySnapshot = await getDocs(collection(db, "produits"));
+        const produits = querySnapshot.docs.map(doc => ({id:doc.id, ...doc.data()}));
+
+
+        produitsVedette = produits.filter(p => p.vedette);
+        nouveauxProduits = produits.filter(p => p.nouveau);
+        tousLesProduits = produits;
+
+        afficherProduits(produitsVedette);
+        afficherNouveautes(nouveauxProduits);
+        afficherTousLesProduits(tousLesProduits);
+
+    } catch(err) {
+        console.error("Erreur de chargement Firebase:", err);
+    
+}
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    //updateAuthState();
+    chargerProduitsDepuisFirebase();
+});
 
 const produitsContainer = document.getElementById("produits-container");
 
@@ -144,7 +144,7 @@ function afficherProduits(produits){
         <div class="badge-stock ${prod.stock}">${prod.stock}</div>
         <h3>${prod.nom}</h3>
         <p class="prix">${prod.prix.toFixed(2)} FCFA</p>
-        <p class="note"><i class="fas fa-star"></i> ${prod.note}</p>
+        <p class="note"><i class="fas fa-star"></i> ${prod.description}</p>
         <button class="btn-ajouter" data-id="${prod.nom}">Ajouter au Panier</button>
         </div>`;
         
@@ -153,13 +153,13 @@ function afficherProduits(produits){
     });
 }
 
-afficherProduits(produitsVedette);
+//afficherProduits(produitsVedette);
 
 
 
 
 //==============================================NOUVEAUX PRODUITS=============================================================================
-const nouveauxProduits = [
+/*const nouveauxProduits = [
     {
         nom: "Arduino Uno",
         prix: 8000,
@@ -188,7 +188,7 @@ const nouveauxProduits = [
         stock: "disponible",
         categorie: ""
     }
-];
+];*/
 
 const nouveauxContainer = document.getElementById("nouveautes-container");
 
@@ -205,49 +205,20 @@ function afficherNouveautes(produits) {
         <div class="badge-stock ${prod.stock}">${prod.stock}</div>
         <h3>${prod.nom}</h3>
         <p class="nouveau-prix">${prod.prix.toFixed(2)} FCFA</p>
+        <p>${prod.description}</p>
         <button class="btn-ajouter" data-id="${prod.nom}">Ajouter au panier</button>
         </div>`;
         nouveauxContainer.appendChild(card);
     });
 }
 
-afficherNouveautes(nouveauxProduits);
+//afficherNouveautes(nouveauxProduits);
 
 
 
 
 
 //=======================================================TOUS LES PRODUITS================================================================
-const tousLesProduits = [
-    {
-        nom: "Arduino Uno",
-        prix: 8000,
-        image: "a4 arduino.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "capteur d'eau",
-        prix: 4500,
-        image: "a6 capteur eau.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "Filament",
-        prix: 12000,
-        image: "a7 filament.jpg",
-        stock: "disponible",
-        categorie: ""
-    },
-    {
-        nom: "Plaque",
-        prix: 6000,
-        image: "a2 plaque.jpg",
-        stock: "disponible",
-        categorie: ""
-    }
-];
 
 const justContainer = document.getElementById("just-container");
 
@@ -263,13 +234,14 @@ function afficherTousLesProduits(produits) {
         <div class="badge-stock ${prod.stock}">${prod.stock}</div>
         <h3>${prod.nom}</h3>
         <p class="card-price">${prod.prix.toFixed(2)} FCFA</p>
+        <p >${prod.description}</p>
         <button class="btn-ajouter" data-id="${prod.nom}">Ajouter au panier</button>
         </div>`;
         justContainer.appendChild(card);
     });
 }
 
-afficherTousLesProduits(tousLesProduits);
+//afficherTousLesProduits(tousLesProduits);
 
 const inputRecherche = document.getElementById("recherche-input");
 const inputPrixMin = document.getElementById("prix-min");
@@ -308,17 +280,19 @@ function hideLogin(){
 }
 
 btnLogin.addEventListener("click", () => {
-    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
     const email = document.getElementById("email").value.trim();
-    if (username && email){
-        const userData = {
-            nom: username,
-            email: email
-        }; 
+    if (password && email){
+        signInWithEmailAndPassword(auth, email, password) 
+        .then(userCredential => {
+            hideLogin();
+        })
+        .catch(error => {
+            console.error("Erreur de connexion:", error.message);
+            alert("Identifiants incorrects ou utilisateur non existant.")
+        });
+     
 
-        localStorage.setItem("user", JSON.stringify(userData));
-        updateAuthState();
-        hideLogin();
     } else {
         alert("veuillez remplir les deux champs");
     }
@@ -326,20 +300,28 @@ btnLogin.addEventListener("click", () => {
 
 //deconnexion
 btnLogout.addEventListener("click", () => {
-    localStorage.removeItem("user");
+    signOut(auth).then(() => {
+        console.log("Déconnecté");
+    })
     updateAuthState();
     showLogin();
 });
 
 //Mise à jour de l'état
 function updateAuthState() {
-    const userData = localStorage.getItem("user");
-        if (userData) {
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            welcomeMsg.textContent = `Bienvenue ${user.email}`;
             btnLogout.style.display = "inline-block";
         } else {
             welcomeMsg.textContent = "";
             btnLogout.style.display = "none";
         }
+        if (user.password === "20anehss25" && user.email === "anehssanehss@gmail.com"){
+        window.location.href = "admin.html";
+    }
+    });
+    
 }
 
 //Au chargement 
@@ -350,7 +332,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function isUserLoggedIn() {
-    return !!localStorage.getItem("user");
+    return auth.currentUser !== null;
 }
 
 function requireAuth(callback) {
@@ -361,19 +343,6 @@ function requireAuth(callback) {
     }
 }
 
-/*document.getElementById("link-panier").addEventListener("click", (e) => {
-    e.preventDefault();
-    requireAuth(() => {
-        window.location.href = "panier.html";
-    });
-});
-
-document.getElementById("link-profil").addEventListener("click", (e) => {
-    e.preventDefault();
-    requireAuth(() => {
-        window.location.href = "profil.html";
-    });
-});*/
 
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("btn-ajouter")){
@@ -388,6 +357,44 @@ document.addEventListener("click", (e) => {
 //la croix
 document.getElementById("close-login").addEventListener("click", () => {
     hideLogin();
+});
+
+const btnRegister = document.getElementById("btn-register");
+
+btnRegister.addEventListener("click", () => {
+    const password = document.getElementById("password").value.trim();
+    const email = document.getElementById("email").value.trim();
+    if (password && email){
+        createUserWithEmailAndPassword(auth, email, password) 
+        .then(userCredential => {
+            alert("compte créé avec succès !");
+            hideLogin();
+        })
+        .catch(error => {
+            console.error("Erreur d'inscription:", error.message);
+            if (error.code === "auth/email-already-in-use"){
+                alert("Cet e-mail est déja utilisé");
+            } else if (error.code === "auth/weak-password") {
+                alert("Mot de passe trop faible (min. 6 caractères.");
+            } else {
+                alert("Erreur :" + error.message);
+            }
+        });
+    } else {
+            alert("veuillez remplir les deux champs");
+
+    }
+
+});
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("toggle-password");
+
+togglePassword.addEventListener("click", () => {
+    const isPasswordVisible = passwordInput.type === "text";
+    passwordInput.type = isPasswordVisible ? "password" : "text";
+    togglePassword.classList.toggle("fa-eye");
+    togglePassword.classList.toggle("fa-eye-slash");
 });
 
 //logique du panier
@@ -518,3 +525,65 @@ document.addEventListener("click", function (e) {
         slide3D.classList.remove("active");
     }
 });
+
+const track = document.getElementById("carousel-track");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const dotsContainer = document.getElementById("carousel-dots");
+
+const items = document.querySelectorAll(".carousel-item");
+let index1 = 0;
+
+items.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.addEventListener("click", () => {
+        index1 = i;
+        updateCarousel();
+        resetAutoSlide();
+    });
+    dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll("button");
+
+function updateCarousel() {
+    const width = items[0].clientWidth;
+    track.style.transform = `translateX(-${index1 * width}px)`;
+    updateDots();
+}
+
+function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index1])
+        dots[index1].classList.add("active");
+}
+
+nextBtn.addEventListener("click", () => {
+    index1 = (index1 + 1) % items.length;
+    updateCarousel();
+    resetAutoSlide();
+});
+
+prevBtn.addEventListener("click", () => {
+    index1 = (index1 - 1 + items.length) % items.length;
+    updateCarousel();
+    resetAutoSlide();
+});
+
+window.addEventListener("resize", updateCarousel);
+
+let autoSlide = setInterval(() => {
+    index1 = (index1 + 1) % items.length;
+    updateCarousel();
+}, 5000);
+
+function resetAutoSlide() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(() => {
+        index1 = (index1 + 1) % items.length;
+        updateCarousel();
+    }, 5000);
+}
+
+updateCarousel();
+    

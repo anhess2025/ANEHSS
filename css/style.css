@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #dfe1e2;
     color: #333;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .site-header {
-    background-color: white;
+    background-color: #dfe1e2;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
@@ -147,7 +147,7 @@ body {
     width: 100%;
     padding: 0.5rem 1rem;
     border-radius: 200px;
-    border: 1px solid #ccc;
+    border: 1px solid #f1c27b;
 }
 
 .user-actions{
@@ -205,7 +205,6 @@ body {
 
     .mobile-nav.show {
         display: block;
-        z-index: 9999;
     }
 }
 
@@ -215,7 +214,7 @@ body {
     justify-content: center;
     align-items: center;
     perspective: 1000px;
-    background-color: #f0f0f0;
+    background-color: #3093ae;
     overflow: hidden;
     margin-top: 0;
     padding-top: 0;
@@ -798,7 +797,7 @@ body {
     position: absolute;
     top: 12px;
     right: 16px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: #333;
     cursor: pointer;
     font-weight: bold;
@@ -806,7 +805,7 @@ body {
 .modal-content {
     position: relative;
     background: white;
-    padding: 2rem;
+    padding: 1.6rem;
     border-radius: 10px;
     text-align: center;
     width: 300px;
@@ -814,14 +813,14 @@ body {
 
 .modal input {
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.4rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .modal button {
-    padding: 0.7rem 1.5rem;
+    padding: 0.5rem 1.2rem;
     background: #007bff;
     border: none;
     color: white;
@@ -1423,4 +1422,104 @@ body {
 .carte-projet.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.carousel-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+}
+
+.order-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #00b894;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background: #019875;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffffdd;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15%;
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background: #eeeeee;
+}
+
+#prev {
+    left:10px;
+}
+#next {
+    right: 10px;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-dots button {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-dots button.active {
+    background-color: #00b894;
 }
