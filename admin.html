@@ -260,6 +260,22 @@ tbody.querySelectorAll(".btn-suppr").forEach(btn => {
 });
 });
 
+const ADMIN_EMAIL = "anehssanehss@gmail.com";
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if (user.email === ADMIN_EMAIL) {
+            console.log("Admin connecté");
+        } else {
+            alert("Accès refusé !");
+            window.location.href = "index.html";
+        }
+    }
+    else {
+        window.location.href = "index.html";
+    }
+});
+
 
     
         
