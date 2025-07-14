@@ -267,8 +267,9 @@ onAuthStateChanged(auth, (user) => {
         if (user.email === ADMIN_EMAIL) {
             console.log("Admin connecté");
         } else {
-            alert("Accès refusé !");
+            
             window.location.href = "index.html";
+            alert("Accès refusé !");
         }
     }
     else {

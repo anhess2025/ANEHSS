@@ -39,7 +39,7 @@ document.addEventListener("click", function(e) {
     }
 });
 
-const produits = [
+/*const produits = [
     {
         titre: "ANEHSS PCB SERVICES",
         description: "",
@@ -94,7 +94,7 @@ function updateFlipCard() {
 }
 
 updateFlipCard();
-setInterval(updateFlipCard, 5000);
+setInterval(updateFlipCard, 5000);*/
 
 
 
@@ -270,13 +270,7 @@ const loginModal = document.getElementById("login-modal");
 const btnLogin = document.getElementById("btn-login");
 const btnLogout = document.getElementById("btn-logout");
 const welcomeMsg = document.getElementById("welcome-msg");
-const link = document.getElementById("link-sign");
 
-
-link.addEventListener("click", (e) => {
-    e.preventDefault();
-    loginModal.style.display = "none";
-});
 function showLogin(){
     loginModal.classList.add("show");
 }
@@ -291,11 +285,12 @@ btnLogin.addEventListener("click", () => {
     if (password && email){
         signInWithEmailAndPassword(auth, email, password) 
         .then(userCredential => {
+            alert("compte crée avec succès !");
             hideLogin();
         })
         .catch(error => {
             console.error("Erreur de connexion:", error.message);
-            alert("Identifiants incorrects ou utilisateur non existant.")
+            alert("Identifiants incorrects ou utilisateur non existant."+ error.message);
         });
      
 
@@ -323,9 +318,7 @@ function updateAuthState() {
             welcomeMsg.textContent = "";
             btnLogout.style.display = "none";
         }
-        if (user && user.email === "anehssanehss@gmail.com"){
-        window.location.href = "admin.html";
-    }
+        
     });
     
 }
