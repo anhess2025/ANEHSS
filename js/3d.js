@@ -77,7 +77,7 @@ form.addEventListener("submit", async (e) => {
     Fichier envoyé: ${urlFichier}`;
 
 
-    const numero = "237679971006"
+    const numero = "23795883293"
     const lien = `https://wa.me/${numero}?text=${encodeURIComponent(contenu)}`;
 
     window.open(lien, "_blank")

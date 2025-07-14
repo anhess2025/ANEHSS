@@ -39,7 +39,7 @@ document.addEventListener("click", function(e) {
     }
 });
 
-const produits = [
+/*const produits = [
     {
         titre: "ANEHSS PCB SERVICES",
         description: "",
@@ -94,7 +94,7 @@ function updateFlipCard() {
 }
 
 updateFlipCard();
-setInterval(updateFlipCard, 5000);
+setInterval(updateFlipCard, 5000);*/
 
 
 
@@ -317,7 +317,7 @@ function updateAuthState() {
             welcomeMsg.textContent = "";
             btnLogout.style.display = "none";
         }
-        if (user.password === "20anehss25" && user.email === "anehssanehss@gmail.com"){
+        if (user && user.email === "anehssanehss@gmail.com"){
         window.location.href = "admin.html";
     }
     });
