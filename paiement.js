@@ -46,7 +46,7 @@ form.addEventListener("submit", (e) => {
 
     
     message += `\n Total: ${total} FCFA`;
-    const numeroAdmin = "237679971006";
+    const numeroAdmin = "23795883293";
     const whatsappUrL = `https://wa.me/${numeroAdmin}?text=${encodeURIComponent(message)}`;
 
     const win = window.open(`https://wa.me/${numeroAdmin}?text=${encodeURIComponent(message)}`, "_blank");

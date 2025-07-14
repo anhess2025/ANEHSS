@@ -270,7 +270,13 @@ const loginModal = document.getElementById("login-modal");
 const btnLogin = document.getElementById("btn-login");
 const btnLogout = document.getElementById("btn-logout");
 const welcomeMsg = document.getElementById("welcome-msg");
+const link = document.getElementById("link-sign");
 
+
+link.addEventListener("click", (e) => {
+    e.preventDefault();
+    loginModal.style.display = "none";
+});
 function showLogin(){
     loginModal.classList.add("show");
 }

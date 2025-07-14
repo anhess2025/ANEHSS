@@ -114,6 +114,39 @@
             }
         }
 
+        .futur {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: rgb(185, 110, 19);
+            text-decoration: none;
+            border: 1px solid rgb(207, 188, 45);
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+        }
+
+        .futur::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 255, 0.2);
+            transition: 0.3s;
+            transform: skew(-30deg);
+        }
+
+        .futur:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgb(201, 138, 13), 0 0 20px  rgb(220, 142, 25), 0 0 30px rgb(212, 153, 50);
+            color: #252327;
+        }
+
 
 
     </style>
@@ -153,6 +186,7 @@
                     <li><a href="#just-container">Produits</a></li>
                     <li><a href="#nouveautes">Nouveautés</a></li>
                     <li><a href="#newsletter-form">Contact</a></li>
+                    <li><a href="index.html" id="link-sign">Connexion</a></li>
                 </ul>
             </nav>
         </div>
@@ -185,6 +219,7 @@
             </h1>
         </section>
         <br>
+        <li><a href="#" id="link-sign" class="futur">Connexion</a></li>
 
 
     
@@ -361,7 +396,7 @@
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/237679971006"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/23795883293"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="ooter-col">
