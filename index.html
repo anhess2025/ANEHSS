@@ -7,6 +7,116 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/Logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;;
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            position: relative;
+        }
+
+        
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .service {
+            flex: 1 1 300px;
+            background: white;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .service:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+
+        }
+
+        .service p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #e57812;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            align-self: flex-start;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn:hover {
+            background: #ca7b0e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn i {
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+            }
+            .service {
+                flex: 1 1 100%;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+
+
+    </style>
 </head>
 
 <div id="bouton-3d">Vos impressions 3D</div>
@@ -79,14 +189,59 @@
 
     
         <br>
-        <section class="hero-flip">
+        <!--<section class="hero-flip">
             <div class="flip-card" id="flip-card">
                 <div class="flip-card-inner" id="flip-card-inner">
-                    <!--cartes générées-->
+                    --cartes générées--
                 </div>
             </div>
-        </section>
-        
+        </section>-->
+        <div class="container">
+            <h1>Nos Services ANEHSS</h1><br>
+            <div class="services">
+                <div class="service">
+                    <div class="service-image">
+                        <img src="images/pcb presentation.jpg" alt="Fabrication de PCB">
+                    </div>
+                    <div class="service-content">
+                        <h2>ANEHSS PCB</h2>
+                        <p>
+                            Conception et fabrication de circuits imprimés sur mesure pourvos projets électroniques.
+                            Nos PCB haute qualité sont produits avec précision pour répondre à vos besoins spécifiques.
+                        </p>
+                        <a href="3d.html" class="btn">Voir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <div class="service-image">
+                        <img src="images/impression 3d.gif" alt="Fabrication de PCB">
+                    </div>
+                    <div class="service-content">
+                        <h2>ANEHSS 3D Printing</h2>
+                        <p>
+                            Modélisation et impréssion 3Dprofessionnelle pour prototypage rapide ou production.
+                            Nous transformons vos idées en objets tangibles avec une précision exceptionnelle.
+                        </p>
+                        <a href="3d.html" class="btn">Voir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <div class="service-image">
+                        <img src="a4 arduino.jpg" alt="Fabrication de PCB">
+                    </div>
+                    <div class="service-content">
+                        <h2>ANEHSS Electronic Shop</h2>
+                        <p>
+                            Votre boutique en ligne pour tous les composants électroniques.
+                            Trouvez ce dont vous avez besoin pour vos projets à des prix compétitifs
+                        </p>
+                        <a href="#nouveautes" class="btn">Voir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>        
         
     <!--Barre de recherche-->
             <section class="filtres-section">
