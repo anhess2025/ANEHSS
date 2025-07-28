@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ANEHSS-produits</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+
+
+<div id="slide-3d">
+    <div class="contenu-slide">
+        <h2>Impression 3D personnalisée</h2>
+        <p>Nous vous offrons la possibilité de réaliser vos impréssions 3D personnalisées<br>
+            soumettez nous vos coordonnées,Fichiers, dimmensions, matériaux... On s'occupe de tout.</p>
+        <a href="3d.html" class="btn-decouvrir">Découvrir</a>
+    </div>
+</div>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!--Logo-->
+            <div class="logo">
+                
+                <img src="images/Logo.png" alt="logo du site" class="photo">
+            </div>
+
+            
+
+            <div class="user-actions">
+                <a href="#" id="link-panier" style="position: relative;"><i class="fas fa-shopping-cart"></i><span id="panier-compteur" class="panier-compteur">0</span></a>
+                <a href="profil.html" id="link-profil"><i class="fas fa-user"></i></a>
+                <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <!--Menu Responsive-->
+            <nav class="mobile-nav" id="mobile-nav">
+                <ul>
+                    <li><a href="admin.html">Adm</a></li>
+                    <li><a href="#just-container">Produits</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="#newsletter-form">Contact</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+        
+
+        <!--Affichage de l'état-->
+    <div id="auth-info">
+        <span id="welcome-msg"></span>
+        <button id="btn-logout" style="display: none;">Se déconnecter</button>
+    </div>
+        
+    </header>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+                <span class="close-btn" id="close-login">&times;</span>
+            <h2>Connexion</h2>
+            <input type="email" id="email" name="username" placeholder="Email" autocomplete="email" required />
+             <input type="password" id="password" name="e-mail" placeholder="Mot de passe" autocomplete="username" required  />
+             <i class="fa-solid fa-eye" id="toggle-password" style="padding: 20px; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+            <button id="btn-login">Se connecter</button>
+            <button id="btn-register">S'inscrire</button>
+            
+            
+        </div>
+    </div>
+    <br>
+    <section class="devise-container">
+            <h1 class="devise">
+                <span class="mot">Professionnalisme</span>
+                <span class="mot">Patience</span>
+                <span class="mot">Dynamisme</span>
+            </h1>
+        </section>
+        <br>
+        
+
+
+    
+        <br>
+        <!--<section class="hero-flip">
+            <div class="flip-card" id="flip-card">
+                <div class="flip-card-inner" id="flip-card-inner">
+                    --cartes générées--
+                </div>
+            </div>
+        </section>-->
+
+    <!--Barre de recherche-->
+            <section class="filtres-section">
+                <div class="filtres-container">
+                    <input type="text" id="recherche-input" placeholder="rechercher un produit..." class="search-ba"/>
+                    
+
+                    <div class="filtre-prix">
+                        <label for="prix-min">Prix min:</label>
+                        <input type="number" id="prix-min" placeholder="0" min="0"/><br>
+                        <label for="prix-max">Prix max:</label>
+                        <input type="number" id="prix-max" placeholder="999999" min="0"/>
+                    </div>
+                    <button id="btn-filtrer"><i class="fas fa-search"></i></button>
+                </div>
+            </section>
+
+    
+    <main>
+        
+        <section class="produits-vedette" id="nouveautes">
+            <h2>Produits en vedette</h2>
+            <div class="produits-container" id="produits-container"></div>
+            <!--Produits générés-->
+        </section>
+
+        <section class="nouveautes" >
+            <h2>Nouveautés</h2>
+            <div class="nouveautes-container" id="nouveautes-container">
+                <!--Nouveaux produits générés dynamiquement-->
+            </div>
+        </section>
+       
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <button id="prev" class="carousel-btn">&#10094;</button>
+
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-item">
+                        <img src="print2.jpg" alt="Produit 1">
+                        <div class="carousel-caption">
+                            <h3>Nos Produits</h3>
+                            <p>Vos pieces du quotidien realisable par impréssion 3D</p>
+                            <a href="#just-container" class="order-btn">Passer une commande</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="a1 main robotique.jpg" alt="Produit 2">
+                        <div class="carousel-caption">
+                            <h3>Nos Services</h3>
+                            <p>Nous vous assistons pour la conception de vos Projets d'électroniques</p>
+                            <a href="3d.html" class="order-btn">Passer une commande</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img  src="images/pcb pub.jpg" alt="Produit 1">
+                        <div class="carousel-caption">
+                            <h3>Nos PCB</h3>
+                            <p>Nous réalisons vos PCB surmésures</p>
+                            <a href="3d.html" class="order-btn">Passer une commande</a>
+                        </div>
+                    </div>
+
+                </div>
+                <button id="next" class="carousel-btn">&#10095;</button>
+            </div>
+
+            
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </section>
+        
+        <section class="just-for-you">
+            <h2>Just For You</h2>
+            <div class="just-container" id="just-container">
+                <!--Tous les produits-->
+            </div>
+        </section>
+    </main>
+    <!--Panier Latéral-->
+    <div id="side-cart" class="side-cart">
+        <div class="side-cart-header">
+            <h3>Mon panier</h3>
+            <span class="close-cart" id="close-cart">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="side-cart-footer">
+        <p>Total : <span id="cart-total">0 FCFA</span></p>
+        <button id="btn-commander">Commander</button>
+        </div>
+    </div>
+
+    <!--Compteur panier-->
+    <span id="panier-compteur" class="panier-compteur">0</span>
+</body>
+    <footer>
+        <div class="footer-container">
+            <div class="ooter-col">
+                <h3>A propos</h3>
+                <p> <b>ANEHSS</b> met à votre disposition des services techniques dans le domaine de l’électronique, l'impréssion 3D et La vente 
+                    des composants électroniques.
+                    <b><br>Email : anehss237@gmail.com <br> Siège social : Quartier Ange Raphael, Douala - Cameroun<br> Tel : 
+(+237) 695 88 32 93 	</p></b>
+            </div>
+            <div class="ooter-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="3d.html">Produits</a></li>
+                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="mailto:anehss237@gmail.com?subject=Prise%20de%20contact&body=Bonjour,%20j'aimerais%20vous%20Contacter.">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ooter-col">
+                <h3>Suivez-Nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/23795883293"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="ooter-col">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 ANEHSS. Tous doits reservés.</p>
+
+    </footer>
+    
+    <script  type="module" src="js/script.js"></script>
+
+    
+    
+
+</html> 

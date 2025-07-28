@@ -152,16 +152,7 @@
     </style>
 </head>
 
-<div id="bouton-3d">Vos impressions 3D</div>
 
-<div id="slide-3d">
-    <div class="contenu-slide">
-        <h2>Impression 3D personnalisée</h2>
-        <p>Nous vous offrons la possibilité de réaliser vos impréssions 3D personnalisées<br>
-            soumettez nous vos coordonnées,Fichiers, dimmensions, matériaux... On s'occupe de tout.</p>
-        <a href="3d.html" class="btn-decouvrir">Découvrir</a>
-    </div>
-</div>
 <body>
     <header class="site-header">
         <div class="container">
@@ -183,8 +174,8 @@
             <nav class="mobile-nav" id="mobile-nav">
                 <ul>
                     <li><a href="admin.html">Adm</a></li>
-                    <li><a href="#just-container">Produits</a></li>
-                    <li><a href="#nouveautes">Nouveautés</a></li>
+                    <li><a href="produits.html">Produits</a></li>
+                    <li><a href="produits.html">Nouveautés</a></li>
                     <li><a href="#newsletter-form">Contact</a></li>
                     
                 </ul>
@@ -274,107 +265,16 @@
                             Votre boutique en ligne pour tous les composants électroniques.
                             Trouvez ce dont vous avez besoin pour vos projets à des prix compétitifs
                         </p>
-                        <a href="#nouveautes" class="btn">Voir plus <i class="fas fa-arrow-right"></i></a>
+                        <a href="produits.html" class="btn">Voir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>        
-        
-    <!--Barre de recherche-->
-            <section class="filtres-section">
-                <div class="filtres-container">
-                    <input type="text" id="recherche-input" placeholder="rechercher un produit..." class="search-ba"/>
-                    
 
-                    <div class="filtre-prix">
-                        <label for="prix-min">Prix min:</label>
-                        <input type="number" id="prix-min" placeholder="0" min="0"/><br>
-                        <label for="prix-max">Prix max:</label>
-                        <input type="number" id="prix-max" placeholder="999999" min="0"/>
-                    </div>
-                    <button id="btn-filtrer"><i class="fas fa-search"></i></button>
-                </div>
-            </section>
 
     
-    <main>
-        
-        <section class="produits-vedette" id="nouveautes">
-            <h2>Produits en vedette</h2>
-            <div class="produits-container" id="produits-container"></div>
-            <!--Produits générés-->
-        </section>
 
-        <section class="nouveautes" >
-            <h2>Nouveautés</h2>
-            <div class="nouveautes-container" id="nouveautes-container">
-                <!--Nouveaux produits générés dynamiquement-->
-            </div>
-        </section>
-       
-        <section class="carousel-section">
-            <div class="carousel-container">
-                <button id="prev" class="carousel-btn">&#10094;</button>
-
-                <div class="carousel-track" id="carousel-track">
-                    <div class="carousel-item">
-                        <img src="print2.jpg" alt="Produit 1">
-                        <div class="carousel-caption">
-                            <h3>Nos Produits</h3>
-                            <p>Vos pieces du quotidien realisable par impréssion 3D</p>
-                            <a href="#just-container" class="order-btn">Passer une commande</a>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="a1 main robotique.jpg" alt="Produit 2">
-                        <div class="carousel-caption">
-                            <h3>Nos Services</h3>
-                            <p>Nous vous assistons pour la conception de vos Projets d'électroniques</p>
-                            <a href="3d.html" class="order-btn">Passer une commande</a>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img  src="images/pcb pub.jpg" alt="Produit 1">
-                        <div class="carousel-caption">
-                            <h3>Nos PCB</h3>
-                            <p>Nous réalisons vos PCB surmésures</p>
-                            <a href="3d.html" class="order-btn">Passer une commande</a>
-                        </div>
-                    </div>
-
-                </div>
-                <button id="next" class="carousel-btn">&#10095;</button>
-            </div>
-
-            
-            <div class="carousel-dots" id="carousel-dots"></div>
-        </section>
-        
-        <section class="just-for-you">
-            <h2>Just For You</h2>
-            <div class="just-container" id="just-container">
-                <!--Tous les produits-->
-            </div>
-        </section>
-    </main>
-    <!--Panier Latéral-->
-    <div id="side-cart" class="side-cart">
-        <div class="side-cart-header">
-            <h3>Mon panier</h3>
-            <span class="close-cart" id="close-cart">&times;</span>
-        </div>
-        <div id="cart-items" class="cart-items"></div>
-        <div class="side-cart-footer">
-        <p>Total : <span id="cart-total">0 FCFA</span></p>
-        <button id="btn-commander">Commander</button>
-        </div>
-    </div>
-
-    <!--Compteur panier-->
-    <span id="panier-compteur" class="panier-compteur">0</span>
-</body>
+</body><br><br>
     <footer>
         <div class="footer-container">
             <div class="ooter-col">
