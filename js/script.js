@@ -285,11 +285,12 @@ btnLogin.addEventListener("click", () => {
     if (password && email){
         signInWithEmailAndPassword(auth, email, password) 
         .then(userCredential => {
+            alert("compte crée avec succès !");
             hideLogin();
         })
         .catch(error => {
             console.error("Erreur de connexion:", error.message);
-            alert("Identifiants incorrects ou utilisateur non existant.")
+            alert("Identifiants incorrects ou utilisateur non existant."+ error.message);
         });
      
 
@@ -317,9 +318,7 @@ function updateAuthState() {
             welcomeMsg.textContent = "";
             btnLogout.style.display = "none";
         }
-        if (user && user.email === "anehssanehss@gmail.com"){
-        window.location.href = "admin.html";
-    }
+        
     });
     
 }

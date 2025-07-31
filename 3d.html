@@ -6,6 +6,61 @@
     <title>boutique-Impression 3D</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+
+        h3 {
+            text-align: center;
+            
+        }
+        .gallery {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        
+
+        @media (max-width: 1200px) {
+            .gallery {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 3;
+              
+                
+                gap: 16px;
+                padding-bottom: 10px;
+            }
+
+        }
+
+
+    </style>
 </head>
 <header class="site-header">
     <button id="btn-retour" class="btn-retour"><i class="fas fa-arrow-left"></i></button>
@@ -68,6 +123,78 @@
             <img src="images/print presentation.jpg">
         </div>
     </section>
+    <br>
+    <h3>Nos Réalisations : ANEHSS PCB SERVICES ET ANEHSS 3D PRINTING</h3><br>
+    <div class="gallery">
+    <a href="#" class="gallery-item">
+        <img src="images/pcb.jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (3).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (4).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (5).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (6).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (7).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print.jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (2).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (3).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (4).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (5).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (6).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (7).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (8).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (9).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (10).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (11).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (12).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/pcb (7).jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print.jpg" alt="Projet">
+    </a>
+    <a href="#" class="gallery-item">
+        <img src="images/print (2).jpg" alt="Projet">
+    </a>
+    </div>
+
+    <br>
+    <br>
+   
+    
     
         
     <div id="fichier-statut"> </div>
@@ -148,6 +275,7 @@
         <p class="footer-bottom">&copy; 2025 ANEHSS . Tous doits reservés.</p>
 
     </footer>
+    
 
     <script src="js/script.js"></script>
     <script src="js/3d.js"></script>
